@@ -1,4 +1,4 @@
-# GYP vs. CMake #
+# vs. CMake
 
 GYP was originally created to generate native IDE project files (Visual Studio, Xcode) for building [Chromium](http://www.chromim.org).
 
@@ -29,10 +29,8 @@ absent from cmake, but not strictly required for Chromium.
 1. Ability to incrementally transition on Windows. It took us about 6 months
 to switch fully to gyp. Previous attempts to move to scons had taken a long
 time and failed, due to the requirement to transition while in flight. For a
-substantial period of time, we had a hybrid of checked in vcproj and
-gyp generated
-vcproj. To this day we still have a good number of GUIDs pinned in the
-gyp files,
+substantial period of time, we had a hybrid of checked in vcproj and gyp generated
+vcproj. To this day we still have a good number of GUIDs pinned in the gyp files,
 because different parts of our release pipeline have leftover assumptions
 regarding manipulating the raw sln/vcprojs. This transition occurred from
 the bottom up, largely because modules like base were easier to convert, and

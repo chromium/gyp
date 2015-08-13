@@ -1,12 +1,4 @@
-﻿# GYP (Generate Your Projects) User Documentation
-
-Status: Draft (as of 2009-05-19)
-
-Mark Mentovai <mark@chromium.org>,
-Steven Knight <sgk@chromium.org>
-_et al._
-
-Modified: 2009-05-19
+# User Documentation
 
 [TOC]
 
@@ -446,7 +438,7 @@ the list.)
 
 **Including or excluding files using patterns**: There are more
 complicated ways to construct a `sources` list based on patterns.  See
-`TODO(sgk)` below.
+`TODO` below.
 
 ### Add a new executable
 
@@ -956,20 +948,20 @@ will be named after `target_name`as usual.
 
 ### Move files (refactoring)
 
-TODO(sgk)
+TODO
 
 ### Custom build steps
 
-TODO(sgk)
+TODO
 
 #### Adding an explicit build step to generate specific files
 
-TODO(sgk)
+TODO
 
 #### Adding a rule to handle files with a new suffix
 
-TODO(sgk)
+TODO
 
 ### Build flavors
 
-TODO(sgk)
+TODO

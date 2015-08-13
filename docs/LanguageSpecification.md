@@ -1,10 +1,4 @@
-# GYP (Generate Your Projects) Language Specification
-
-Status: Draft (as of 2009-01-30)
-
-Mark Mentovai <mark@chromium.org> _et al._
-
-Modified: 2009-02-10
+# Language Specification
 
 [TOC]
 
@@ -397,25 +391,9 @@ file formats as follows:
     * `SolutionProperties`:
     * `NestedProjects`:
 
-## Code Location
-
-Here!  http://gyp.googlecode.com/
-
-## Group Members
-
-|:-----------------|:---------------------------------|
-| Darin Fisher     | Overall approval of final design |
-| Elliot Glaysher  | Approval of Linux build functionality. |
-| Alex Harper      |  |
-| Steven Knight    | Language specification.<br />Code for generating Scons files from `.gyp` files. |
-| Mark Mentovai    | Input language design and implementation.<br />Code for generating Xcode files from `.gyp` files.<br />Approval of Mac (Xcode) build functionality. |
-| Bradley Nelson   | Code for generating Visual Studio files from `.gyp` files. |
-| Randall Spangler |  |
-| Nicolas Sylvain  | Approval of Windows build functionality. |
-
 ## Caveats
 
-TODO(sgk):  Notes/Question from very first prototype draft of the language.
+Notes/Question from very first prototype draft of the language.
 Make sure these issues are addressed somewhere before deleting.
 
   * Libraries are easy, application abstraction is harder
@@ -445,31 +423,3 @@ Make sure these issues are addressed somewhere before deleting.
     * Purify / Valgrind
   * Will everyone upgrade VS at once?
   * What does a dylib dependency mean?
-
-## Testing Plan
-
-_What are the sub-units of your system that will be independently testable?
-Tests must be approved by the code reviewer, and must follow the guidelines in
-the unittesting document as far as possible. See What Is A Design Document for
-criteria for whole system tests on servers.  If there are changes envisaged in
-your future work, would your tests verify the base functionality? If some of
-your tests cannot be easily automated (e.g. UI tests), how will you document
-the needed special procedures?_
-
-## Documentation Plan
-
-Documentation via this wiki: http://code.google.com/p/gyp
-
-## Work Estimates
-
-_Estimates of how long each phase will take (please be detailed; subtask
-granularity should be roughly one week)_
-
-## Launch Plans
-
-_What are the launch plans for your project? This includes, but is not limited
-to:
-    * What visible changes your project will cause on the site.
-    * What will be the impact on production and/or search partners.
-    * What new servers will be introduced.
-    * Rough timeline for releasing your project._

@@ -1,13 +1,4 @@
-﻿# GYP (Generate Your Projects) Tests
-
---
-
-Status: Draft (as of 2009-08-18)
-
-Steven Knight <sgk@chromium.org>
-_et al._
-
-Modified: 2009-08-18
+# Testing
 
 [TOC]
 

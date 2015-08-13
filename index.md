@@ -1,8 +1,10 @@
-# GYP can Generate Your Projects.
-
-Mailing list:  http://groups.google.com/group/gyp-developer
+# Generate Your Projects.
 
 GYP is a Meta-Build system: a build system that generates other build systems.
+
+Source code: https://chromium.googlesource.com/external/gyp
+
+Mailing list:  http://groups.google.com/group/gyp-developer
 
 GYP is intended to support large projects that need to be built on multiple
 platforms (e.g., Mac, Windows, Linux), and where it is important that 
@@ -19,4 +21,4 @@ scaffolding for a nice user experience but call out to Ninja to do the actual
 building (which is usually much faster than the native build systems of the
 IDEs).
 
-For more information on GYP, click on the links on the left.
+For more information on GYP, click on the links above.
