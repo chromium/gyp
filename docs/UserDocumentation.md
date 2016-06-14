@@ -7,7 +7,7 @@
 This document is intended to provide a user-level guide to GYP.  The
 emphasis here is on how to use GYP to accomplish specific tasks, not on
 the complete technical language specification.  (For that, see the
-[LanguageSpecification](LanguageSpecification).)
+[LanguageSpecification](LanguageSpecification.md).)
 
 The document below starts with some overviews to provide context: an
 overview of the structure of a `.gyp` file itself, an overview of a

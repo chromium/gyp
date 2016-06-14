@@ -40,7 +40,7 @@ python gyptest.py test/win  # Only run Windows-related tests.
 python gyptest.py -a -f ninja  # Only run ninja-related tests.
 ```
 
-See [Testing](Testing) for more details on the test framework.
+See [Testing](Testing.md) for more details on the test framework.
 
 Note that it can be handy to look at the project files output by the tests
 to diagnose problems. The easiest way to do that is by kindly asking the
@@ -68,7 +68,7 @@ Once you're ready to submit, you can use the GYP try bots to test your change
 with e.g.
 
 ```
-git cl try --use-buildbucket
+git cl try
 ```
 
 *Trying to use the Rietveld UI to run try jobs is currently broken*.
