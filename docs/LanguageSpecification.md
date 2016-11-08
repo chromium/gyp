@@ -136,7 +136,8 @@ targets and how they're to be built.
 The following keywords are meaningful within the top-level dictionary
 definition:
 
-|:-------------     |:------------------|
+| *Keyword*         | *Description*     |
+|:------------------|:------------------|
 | `conditions`      | A conditional section that may contain other items that can be present in a top-level dictionary, on a conditional basis.  See the "Conditionals" section below. |
 | `includes`        | A list of `.gypi` files to be included in the top-level dictionary. |
 | `target_defaults` | A dictionary of default settings to be inherited by all targets in the top-level dictionary.  See the "Settings keywords" section below. |
@@ -152,7 +153,8 @@ Targets may contain `includes`, `conditions`, and `variables` sections
 as permitted in the root dictionary. The following additional keywords
 have structural meaning for target definitions:
 
-|:----------                   |:------------------------------------------|
+| *Keyword*         | *Description*     |
+|:---------------------------- |:------------------------------------------|
 | `actions`                    | A list of special custom actions to perform on a specific input file, or files, to produce output files.  See the "Actions" section below. |
 | `all_dependent_settings`     | A dictionary of settings to be applied to all dependents of the target, transitively.  This includes direct dependents and the entire set of their dependents, and so on.  This section may contain anything found within a `target` dictionary, except `configurations`, `target_name`, and `type` sections.  Compare `direct_dependent_settings` and `link_settings`. |
 | `configurations`             | A list of dictionaries defining build configurations for the target.  See the "Configurations" section below.  |
@@ -200,6 +202,7 @@ a target dictionary, except for `actions`, `all_dependent_settings`,
 
 Configuration dictionaries may also contain these elements:
 
+| *Keyword*            | *Description*                                       |
 |:---------------------|:----------------------------------------------------|
 | `configuration_name` | Required attribute.  The name of the configuration. |
 
@@ -231,6 +234,7 @@ An `actions` section provides a list of custom build actions to perform
 on inputs, producing outputs.  The `actions` section is organized as a
 list.  Each item in the list is a dictionary having the following form:
 
+| *Keyword*     | *Type* | *Description*                |
 |:--------------|:-------|:-----------------------------|
 | `action_name` | string | The name of the action.  Depending on how actions are implemented in the various generators, some may desire or require this property to be set to a unique name; others may ignore this property entirely. |
 | `inputs`      | list   | A list of pathnames treated as inputs to the custom action. |
@@ -288,6 +292,7 @@ A `rules` section provides custom build action to perform on inputs, producing
 outputs.  The `rules` section is organized as a list.  Each item in the list is
 a dictionary having the following form:
 
+| *Keyword*   | *Type* | *Description*                            |
 |:------------|:-------|:-----------------------------------------|
 | `rule_name` | string | The name of the rule.  Depending on how Rules are implemented in the various generators, some may desire or require this property to be set to a unique name; others may ignore this property entirely. |
 | `extension` | string | All source files of the current target with the given extension will be treated successively as inputs to the rule. |
@@ -298,6 +303,7 @@ a dictionary having the following form:
 
 There are several variables available to `outputs`, `action`, and `message`.
 
+|  *Variable*          | *Description*                       |
 |:---------------------|:------------------------------------|
 | `RULE_INPUT_PATH`    | The full path to the current input. |
 | `RULE_INPUT_DIRNAME` | The directory of the current input. |
@@ -320,6 +326,7 @@ A `copies` section provides a simple means of copying files.  The
 `copies` section is organized as a list.  Each item in the list is a
 dictionary having the following form:
 
+| *Keyword*     | *Type* | *Description*                 |
 |:--------------|:-------|:------------------------------|
 | `destination` | string | The directory into which the `files` will be copied. |
 | `files`       | list   | A list of files to be copied. |
