@@ -2065,7 +2065,7 @@ def GenerateOutput(target_list, target_dicts, data, params):
     header_params.update({
         'link_commands': LINK_COMMANDS_ANDROID,
     })
-  elif flavor == 'os390':
+  elif flavor == 'zos':
     copy_archive_arguments = '-fPR'
     makedep_arguments = '-qmakedep=gcc'
     header_params.update({
