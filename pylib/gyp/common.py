@@ -431,6 +431,8 @@ def GetFlavor(params):
     return 'aix'
   if sys.platform.startswith('zos'):
     return 'zos'
+  if sys.platform.startswith('os390'):
+    return 'zos'
 
   return 'linux'
 
