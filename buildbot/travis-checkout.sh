@@ -13,8 +13,9 @@ get_depot_tools() {
 }
 
 gclient_sync() {
-  cd "${TRAVIS_BUILD_DIR}"
+  cd "${TRAVIS_BUILD_DIR}"/..
   gclient config --unmanaged https://github.com/chromium/gyp.git
+  cd gyp
   gclient sync
 }
 
