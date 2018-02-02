@@ -25,4 +25,5 @@ main() {
   get_depot_tools
   gclient_sync
 }
+
 main "$@"
