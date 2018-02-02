@@ -1,0 +1,8 @@
+# Travis build integration.
+language: cpp
+compiler:
+ - gcc
+before_install: ./buildbot/travis-checkout.sh
+script: gyptest.py -a
+os:
+  - linux
