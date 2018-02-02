@@ -9,7 +9,7 @@ set -ex
 get_depot_tools() {
   cd
   git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
-  PATH="$HOME/depot_tools:$PATH"
+  export PATH="$HOME/depot_tools:$PATH"
 }
 
 gclient_sync() {

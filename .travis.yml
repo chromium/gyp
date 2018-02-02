@@ -2,7 +2,7 @@ language: cpp
 compiler:
  - gcc
 before_install: ./buildbot/travis-checkout.sh
-script: ./gyptest.py -a
+script: ./gyptest.py -a -f ninja
 os:
   - linux
   - osx
