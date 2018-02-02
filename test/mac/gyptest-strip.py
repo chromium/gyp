@@ -16,6 +16,9 @@ import subprocess
 import sys
 import time
 
+print "This test is currently disabled: https://crbug.com/483696."
+sys.exit(0)
+
 if sys.platform == 'darwin':
   test = TestGyp.TestGyp(formats=['ninja', 'make', 'xcode'])
 

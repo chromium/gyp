@@ -12,6 +12,9 @@ import os
 import sys
 import TestGyp
 
+print "This test is currently disabled: https://crbug.com/483696."
+sys.exit(0)
+
 test_format = ['ninja']
 
 os.environ['CC_wrapper'] = 'distcc'

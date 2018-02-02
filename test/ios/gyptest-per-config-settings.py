@@ -17,6 +17,9 @@ import sys
 import tempfile
 import TestMac
 
+print "This test is currently disabled: https://crbug.com/483696."
+sys.exit(0)
+
 def CheckFileType(file, expected):
   proc = subprocess.Popen(['lipo', '-info', file], stdout=subprocess.PIPE)
   o = proc.communicate()[0].strip()

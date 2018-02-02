@@ -19,6 +19,9 @@ if sys.platform == 'win32':
   # and make not supported on windows at all.
   sys.exit(0)
 
+print "This test is currently disabled: https://crbug.com/483696."
+sys.exit(0)
+
 test = TestGyp.TestGyp(formats=['ninja', 'make'])
 
 gypfile = 'compiler-global-settings.gyp'
