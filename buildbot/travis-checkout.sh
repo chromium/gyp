@@ -17,8 +17,6 @@ gclient_sync() {
   gclient config --unmanaged https://github.com/chromium/gyp.git
   gclient sync
   cd gyp
-  echo 'where is ninja?'
-  which ninja
 }
 
 main() {
