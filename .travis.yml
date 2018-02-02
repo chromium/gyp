@@ -1,6 +1,6 @@
 language: cpp
 compiler:
- - gcc
+ - clang
 before_install: ./buildbot/travis-checkout.sh
 script: ./buildbot/travis-test.sh
 os:
