@@ -6,3 +6,6 @@ script: ./buildbot/travis-test.sh
 os:
   - linux
   - osx
+branches:
+  only:
+  - master
