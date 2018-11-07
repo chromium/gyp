@@ -1094,17 +1094,6 @@ def GenerateOutput(target_list, target_dicts, data, params):
         # work if there ever was a concrete output that had an input-dependent
         # variable anywhere other than in the leaf position.
 
-        # Don't declare any inputPaths or outputPaths.  If they're present,
-        # Xcode will provide a slight optimization by only running the script
-        # phase if any output is missing or outdated relative to any input.
-        # Unfortunately, it will also assume that all outputs are touched by
-        # the script, and if the outputs serve as files in a compilation
-        # phase, they will be unconditionally rebuilt.  Since make might not
-        # rebuild everything that could be declared here as an output, this
-        # extra compilation activity is unnecessary.  With inputPaths and
-        # outputPaths not supplied, make will always be called, but it knows
-        # enough to not do anything when everything is up-to-date.
-
         # To help speed things up, pass -j COUNT to make so it does some work
         # in parallel.  Don't use ncpus because Xcode will build ncpus targets
         # in parallel and if each target happens to have a rules step, there
@@ -1120,7 +1109,9 @@ exec xcrun make -f "${PROJECT_FILE_PATH}/%s" -j "${JOB_COUNT}"
 exit 1
 """ % makefile_name
         ssbp = gyp.xcodeproj_file.PBXShellScriptBuildPhase({
+              'inputPaths': rule['rule_sources'],
               'name': 'Rule "' + rule['rule_name'] + '"',
+              'outputPaths': concrete_outputs_all,
               'shellScript': script,
               'showEnvVarsInLog': 0,
             })
