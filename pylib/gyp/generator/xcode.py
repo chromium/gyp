@@ -710,7 +710,7 @@ def GenerateOutput(target_list, target_dicts, data, params):
     type = spec['type']
     is_xctest = int(spec.get('mac_xctest_bundle', 0))
     is_xcuitest = int(spec.get('mac_xcuitest_bundle', 0))
-    is_bundle = int(spec.get('mac_bundle', 0)) or is_xctest
+    is_bundle = int(spec.get('mac_bundle', 0)) or is_xctest or is_xcuitest
     is_app_extension = int(spec.get('ios_app_extension', 0))
     is_watchkit_extension = int(spec.get('ios_watchkit_extension', 0))
     is_watch_app = int(spec.get('ios_watch_app', 0))
