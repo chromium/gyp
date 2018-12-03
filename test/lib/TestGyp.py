@@ -790,8 +790,16 @@ class TestGypOnMSToolchain(TestGypBase):
   @staticmethod
   def _ComputeVsvarsPath(devenv_path):
     devenv_dir = os.path.split(devenv_path)[0]
-    vsvars_path = os.path.join(devenv_path, '../../Tools/vsvars32.bat')
-    return vsvars_path
+
+    # Check for location of Community install (in VS2017, at least).
+    vcvars_path = os.path.join(devenv_path, '..', '..', '..', '..', 'VC',
+                               'Auxiliary', 'Build', 'vcvars32.bat')
+    if os.path.exists(vcvars_path):
+      return os.path.abspath(vcvars_path)
+
+    vsvars_path = os.path.join(devenv_path, '..', '..', 'Tools',
+                               'vsvars32.bat')
+    return os.path.abspath(vsvars_path)
 
   def initialize_build_tool(self):
     super(TestGypOnMSToolchain, self).initialize_build_tool()
