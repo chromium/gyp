@@ -6,6 +6,11 @@ import re
 import os
 import locale
 
+try:
+  # reduce moved to functools in python3.
+  reduce
+except NameError:
+  from functools import reduce
 
 def XmlToString(content, encoding='utf-8', pretty=False):
   """ Writes the XML content to disk, touching the file only if it has changed.
@@ -80,7 +85,7 @@ def _ConstructContentList(xml_parts, specification, pretty, level=0):
   # Optionally in second position is a dictionary of the attributes.
   rest = specification[1:]
   if rest and isinstance(rest[0], dict):
-    for at, val in sorted(rest[0].iteritems()):
+    for at, val in sorted(rest[0].items()):
       xml_parts.append(' %s="%s"' % (at, _XmlEscape(val, attr=True)))
     rest = rest[1:]
   if rest:

@@ -63,7 +63,7 @@ class Registry(object):
     text = None
     try:
       text = self._QueryBase('Sysnative', key, value)
-    except OSError, e:
+    except OSError as e:
       if e.errno == errno.ENOENT:
         text = self._QueryBase('System32', key, value)
       else:
