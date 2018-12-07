@@ -648,7 +648,8 @@ def GetDefaultKeychainPath():
   # Format is:
   # $ security default-keychain
   #     "/Some/Path/To/default.keychain"
-  path = subprocess.check_output(['security', 'default-keychain']).strip()
+  path = subprocess.check_output(['security', 'default-keychain']).decode(
+      'utf-8', 'ignore').strip()
   return path[1:-1]
 
 def FindMSBuildInstallation(msvs_version = 'auto'):
@@ -743,13 +744,15 @@ def FindVisualStudioInstallation():
         args1 = ['reg', 'query',
                     'HKLM\Software\Microsoft\VisualStudio\SxS\VS7',
                     '/v', '15.0', '/reg:32']
-        build_tool = subprocess.check_output(args1)\
-          .strip().split('\r\n').pop().split(' ').pop()
+        build_tool = subprocess.check_output(args1).decode(
+            'utf-8', 'ignore').strip().split(b'\r\n').pop().split(b' ').pop()
+        build_tool = build_tool.decode('utf-8')
       if build_tool:
         args2 = ['cmd.exe', '/d', '/c',
                 'cd', '/d', build_tool,
                 '&', 'dir', '/b', '/s', 'msbuild.exe']
-        msbuild_exes = subprocess.check_output(args2).strip().split('\r\n')
+        msbuild_exes = subprocess.check_output(args2).strip().split(b'\r\n')
+        msbuild_exes = [m.decode('utf-8') for m in msbuild_exes]
       if len(msbuild_exes):
         msbuild_Path = os.path.join(build_tool, msbuild_exes[0])
         if os.path.exists(msbuild_Path):
@@ -819,7 +822,7 @@ class TestGypOnMSToolchain(TestGypBase):
     arguments = [cmd, '/c', self.vsvars_path, '&&', 'dumpbin']
     arguments.extend(dumpbin_args)
     proc = subprocess.Popen(arguments, stdout=subprocess.PIPE)
-    output = proc.communicate()[0]
+    output = proc.communicate()[0].decode('utf-8', 'ignore')
     assert not proc.returncode
     return output
 
