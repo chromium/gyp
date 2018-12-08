@@ -22,6 +22,13 @@ import sys
 from xml.dom.minidom import parse
 from xml.dom.minidom import Node
 
+try:
+  # cmp was removed in python3.
+  cmp
+except NameError:
+  def cmp(a, b):
+    return (a > b) - (a < b)
+
 REPLACEMENTS = dict()
 ARGUMENTS = None
 
@@ -63,7 +70,7 @@ class CmpNode(object):
 def PrettyPrintNode(node, indent=0):
   if node.nodeType == Node.TEXT_NODE:
     if node.data.strip():
-      print '%s%s' % (' '*indent, node.data.strip())
+      print('%s%s' % (' '*indent, node.data.strip()))
     return
 
   if node.childNodes:
@@ -322,7 +329,6 @@ def main(argv):
 
   # Finally, we use the prett xml function to print the vcproj back to the
   # user.
-  #print dom.toprettyxml(newl="\n")
   PrettyPrintNode(dom.documentElement)
   return 0
 

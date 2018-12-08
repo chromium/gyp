@@ -160,6 +160,13 @@ try:
 except NameError:
   basestring = str
 
+try:
+  # cmp was removed in python3.
+  cmp
+except NameError:
+  def cmp(a, b):
+    return (a > b) - (a < b)
+
 # See XCObject._EncodeString.  This pattern is used to determine when a string
 # can be printed unquoted.  Strings that match this pattern may be printed
 # unquoted.  Strings that do not match must be quoted and may be further

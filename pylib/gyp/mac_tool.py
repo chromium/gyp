@@ -670,7 +670,7 @@ def WriteHmap(output_name, filelist):
   count = len(filelist)
   capacity = NextGreaterPowerOf2(count)
   strings_offset = 24 + (12 * capacity)
-  max_value_length = len(max(filelist.items(), key=lambda (k,v):len(v))[1])
+  max_value_length = len(max(filelist.items(), key=lambda t: len(t[1]))[1])
 
   out = open(output_name, "wb")
   out.write(struct.pack('<LHHLLLL', magic, version, _reserved, strings_offset,

@@ -308,10 +308,8 @@ def _ConfigWindowsTargetPlatformVersion(config_data, version):
       if names:
         return names[0]
       else:
-        print >> sys.stdout, (
-          'Warning: No include files found for '
-          'detected Windows SDK version %s' % (version)
-        )
+        print('Warning: No include files found for '
+              'detected Windows SDK version %s' % (version))
 
 
 def _BuildCommandLineForRuleRaw(spec, cmd, cygwin_shell, has_input_path,
@@ -2065,7 +2063,7 @@ def GenerateOutput(target_list, target_dicts, data, params):
     if generator_flags.get('msvs_error_on_missing_sources', False):
       raise GypError(error_message)
     else:
-      print("Warning: " + error_message, file=sys.stdout)
+      print("Warning: " + error_message)
 
 
 def _GenerateMSBuildFiltersFile(filters_path, source_files,

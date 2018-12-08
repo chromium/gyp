@@ -584,7 +584,7 @@ def TopologicallySorted(graph, get_edges):
     graph = {'a': '$(b) $(c)', 'b': 'hi', 'c': '$(b)'}
     def GetEdges(node):
       return re.findall(r'\$\(([^))]\)', graph[node])
-    print TopologicallySorted(graph.keys(), GetEdges)
+    print(TopologicallySorted(graph.keys(), GetEdges))
     ==>
     ['a', 'c', b']
   """

@@ -829,13 +829,13 @@ def recv_some(p, t=.1, e=1, tr=5, stderr=0):
             time.sleep(max((x-time.time())/tr, 0))
     return ''.join(y)
 
-# TODO(3.0:  rewrite to use memoryview()
 def send_all(p, data):
+    data = memoryview(data)
     while len(data):
         sent = p.send(data)
         if sent is None:
             raise Exception(disconnect_message)
-        data = buffer(data, sent)
+        data = data[sent:]
 
 
 
