@@ -62,7 +62,7 @@ def MakeGuid(name, seed='msvs_new'):
     d = _new_md5(str(seed) + str(name)).hexdigest().upper()
   else:
     # strs need to be converted to bytes.
-    seed_bytes = (str(seed) + str(name)).encode(encoding='UTF-8'))
+    seed_bytes = (str(seed) + str(name)).encode(encoding='UTF-8')
     d = _new_md5(seed_bytes).hexdigest().upper()
   # Convert most of the signature to GUID form (discard the rest)
   guid = ('{' + d[:8] + '-' + d[8:12] + '-' + d[12:16] + '-' + d[16:20]
