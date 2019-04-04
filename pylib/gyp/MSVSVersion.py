@@ -268,7 +268,7 @@ def _CreateVersion(name, path, sdk_based=False):
                                   uses_vcxproj=True,
                                   path=path,
                                   sdk_based=sdk_based,
-                                  default_toolset='v141',
+                                  default_toolset='v142',
                                   compatible_sdks=['v8.1', 'v10.0']),
       '2017': VisualStudioVersion('2017',
                                   'Visual Studio 2017',
@@ -409,10 +409,18 @@ def _DetectVisualStudioVersions(versions_to_check, force_express):
       '11.0': '2012',
       '12.0': '2013',
       '14.0': '2015',
-      '15.0': '2017'
+      '15.0': '2017',
+      '16.0': '2019'
   }
+  shell_path = os.environ.get('VSINSTALLDIR')
+  shell_path = _ConvertToCygpath(shell_path) if shell_path else None
+  shell_version = os.environ.get('VisualStudioVersion') if shell_path else None
   versions = []
   for version in versions_to_check:
+    if version == shell_version:
+      if os.path.exists(shell_path):
+        versions.append(_CreateVersion(version_to_year[version], shell_path))
+
     # Old method of searching for which VS version is installed
     # We don't use the 2010-encouraged-way because we also want to get the
     # path to the binaries, which it doesn't offer.
@@ -470,7 +478,7 @@ def SelectVisualStudioVersion(version='auto', allow_fallback=True):
   if version == 'auto':
     version = os.environ.get('GYP_MSVS_VERSION', 'auto')
   version_map = {
-    'auto': ('15.0', '14.0', '12.0', '10.0', '9.0', '8.0', '11.0'),
+    'auto': ('16.0', '15.0', '14.0', '12.0', '10.0', '9.0', '8.0', '11.0'),
     '2005': ('8.0',),
     '2005e': ('8.0',),
     '2008': ('9.0',),
@@ -483,6 +491,7 @@ def SelectVisualStudioVersion(version='auto', allow_fallback=True):
     '2013e': ('12.0',),
     '2015': ('14.0',),
     '2017': ('15.0',),
+    '2019': ('16.0',),
   }
   override_path = os.environ.get('GYP_MSVS_OVERRIDE_PATH')
   if override_path:
