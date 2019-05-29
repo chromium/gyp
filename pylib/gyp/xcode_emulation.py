@@ -1452,7 +1452,7 @@ def GetStdout(cmdlist):
   if job.returncode != 0:
     sys.stderr.write(out + b'\n')
     raise GypError('Error %d running %s' % (job.returncode, cmdlist[0]))
-  return out.rstrip('\n')
+  return out.rstrip(b'\n')
 
 
 def MergeGlobalXcodeSettingsToSpec(global_dict, spec):
