@@ -321,7 +321,7 @@ class MsvsSettings(object):
     # first level is globally for the configuration (this is what we consider
     # "the" config at the gyp level, which will be something like 'Debug' or
     # 'Release'), VS2015 and later only use this level
-    if self.vs_version.short_name >= 2015:
+    if self.vs_version.short_name >= '2015':
       return config
     # and a second target-specific configuration, which is an
     # override for the global one. |config| is remapped here to take into
