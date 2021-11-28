@@ -885,7 +885,7 @@ the `OS` variable.
   ],
   'conditions': [
     ['OS=="mac"', {'sources!': ['win_util.cc']}],
-    ['OS=="win"', {'sources!': ['mac_util.cc']}],
+    ['OS=="win"', {'sources!': ['mac_util.mm']}],
   ],
 }
 ```
