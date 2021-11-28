@@ -435,7 +435,7 @@ similar syntax, differing only in the character used to introduce them.
 
   * Early expansions are introduced by a less-than (`<`) character.
     _Mnemonic: the arrow points to the left, earlier on a timeline._
-  * Late expansions are introduced by a less-than (`>`) character.
+  * Late expansions are introduced by a greater-than (`>`) character.
     _Mnemonic: the arrow points to the right, later on a timeline._
 
 The difference the two phases of expansion is described in [Early and
