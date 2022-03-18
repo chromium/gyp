@@ -4,7 +4,6 @@
 
 from __future__ import print_function
 
-import collections
 import copy
 import ntpath
 import os
@@ -12,6 +11,8 @@ import posixpath
 import re
 import subprocess
 import sys
+
+from six.moves import collections_abc
 
 import gyp.common
 import gyp.easy_xml as easy_xml
@@ -195,7 +196,7 @@ def _ConvertSourcesToFilterHierarchy(sources, prefix=None, excluded=None,
   if not prefix: prefix = []
   result = []
   excluded_result = []
-  folders = collections.OrderedDict()
+  folders = collections_abc.OrderedDict()
   # Gather files into the final result, excluded, or folders.
   for s in sources:
     if len(s) == 1:
