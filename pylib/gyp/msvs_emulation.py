@@ -38,9 +38,10 @@ def QuoteForRspFile(arg):
   # works more or less because most programs (including the compiler, etc.)
   # use that function to handle command line arguments.
 
-  # Use a heuristic to try to find args that are paths, and normalize them
-  if arg.find('/') > 0 or arg.count('/') > 1:
-    arg = os.path.normpath(arg)
+  if not os.getenv('GYP_MSVS_DISABLE_PATH_NORMALIZATION'):
+    # Use a heuristic to try to find args that are paths, and normalize them
+    if arg.find('/') > 0 or arg.count('/') > 1:
+      arg = os.path.normpath(arg)
 
   # For a literal quote, CommandLineToArgvW requires 2n+1 backslashes
   # preceding it, and results in n backslashes + the quote. So we substitute
