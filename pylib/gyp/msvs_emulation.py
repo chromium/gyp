@@ -17,6 +17,7 @@ from six.moves import collections_abc
 from gyp.common import OrderedSet
 import gyp.MSVSUtil
 import gyp.MSVSVersion
+from gyp.MSVSVersion import version_to_tuple
 
 try:
   # basestring was removed in python3.
@@ -26,10 +27,6 @@ except NameError:
 
 
 windows_quoter_regex = re.compile(r'(\\*)"')
-
-
-def version_to_tuple(version_str):
-  return tuple(int(x) for x in version_str.split('.'))
 
 
 def QuoteForRspFile(arg):
