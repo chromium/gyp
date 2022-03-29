@@ -140,7 +140,8 @@ def _FindDirectXInstallation():
   if not dxsdk_dir:
     # Setup params to pass to and attempt to launch reg.exe.
     cmd = ['reg.exe', 'query', r'HKLM\Software\Microsoft\DirectX', '/s']
-    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                         universal_newlines=True)
     for line in p.communicate()[0].splitlines():
       if 'InstallPath' in line:
         dxsdk_dir = line.split('    ')[3] + "\\"
@@ -1052,7 +1053,8 @@ def GenerateEnvironmentFiles(toplevel_build_dir, generator_flags,
     args = vs.SetupScript(arch)
     args.extend(('&&', 'set'))
     popen = subprocess.Popen(
-        args, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        args, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+        universal_newlines=True)
     variables, _ = popen.communicate()
     if popen.returncode != 0:
       raise Exception('"%s" failed with error %d' % (args, popen.returncode))
@@ -1073,7 +1075,8 @@ def GenerateEnvironmentFiles(toplevel_build_dir, generator_flags,
     args = vs.SetupScript(arch)
     args.extend(('&&',
       'for', '%i', 'in', '(cl.exe)', 'do', '@echo', 'LOC:%~$PATH:i'))
-    popen = subprocess.Popen(args, shell=True, stdout=subprocess.PIPE)
+    popen = subprocess.Popen(args, shell=True, stdout=subprocess.PIPE,
+                             universal_newlines=True)
     output, _ = popen.communicate()
     cl_paths[arch] = _ExtractCLPath(output)
   return cl_paths
