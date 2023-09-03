@@ -282,7 +282,7 @@ def _CreateVersion(name, path, sdk_based=False):
                                   uses_vcxproj=True,
                                   path=path,
                                   sdk_based=sdk_based,
-                                  default_toolset='v141',
+                                  default_toolset='v142',
                                   compatible_sdks=['v8.1', 'v10.0']),
       '2017': VisualStudioVersion('2017',
                                   'Visual Studio 2017',
