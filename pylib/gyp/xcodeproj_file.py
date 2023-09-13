@@ -1531,6 +1531,7 @@ class PBXFileReference(XCFileLikeElement, XCContainerPortal, XCRemoteObject):
         'xcconfig':    'text.xcconfig',
         'xcdatamodel': 'wrapper.xcdatamodel',
         'xcdatamodeld':'wrapper.xcdatamodeld',
+        'xcframework': 'wrapper.xcframework',
         'xib':         'file.xib',
         'y':           'sourcecode.yacc',
         'tbd':         'sourcecode.text-based-dylib-definition',

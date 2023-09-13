@@ -499,7 +499,7 @@ def AddSourceToTarget(source, type, pbxp, xct):
   # of "sources" as things to compile and "libraries" (or "frameworks") as
   # things to link with. Adding an object file to an Xcode target's frameworks
   # phase works properly.
-  library_extensions = ['a', 'dylib', 'framework', 'o']
+  library_extensions = ['a', 'dylib', 'framework', 'xcframework', 'o']
 
   basename = posixpath.basename(source)
   (root, ext) = posixpath.splitext(basename)

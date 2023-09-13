@@ -1154,7 +1154,7 @@ class XcodeSettings(object):
     return pre + postbuilds + post
 
   def _AdjustLibrary(self, library, config_name=None):
-    if library.endswith('.framework'):
+    if library.endswith('.framework') or library.endswith('.xcframework'):
       l = '-framework ' + os.path.splitext(os.path.basename(library))[0]
     else:
       m = self.library_re.match(library)
