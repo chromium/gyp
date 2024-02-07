@@ -1,8 +1,10 @@
-;;; gyp.el - font-lock-mode support for gyp files.
+;;; gyp.el --- font-lock-mode support for gyp files.
 
 ;; Copyright (c) 2012 Google Inc. All rights reserved.
 ;; Use of this source code is governed by a BSD-style license that can be
 ;; found in the LICENSE file.
+
+;; Version: 0.1.0
 
 ;; Put this somewhere in your load-path and
 ;; (require 'gyp)
@@ -273,3 +275,4 @@
     )))
 
 (provide 'gyp)
+;;; gyp.el ends here
